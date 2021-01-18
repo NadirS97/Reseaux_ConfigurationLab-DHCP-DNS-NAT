@@ -1,0 +1,7 @@
+ifconfig eth0 10.176.100.3/22
+ifconfig eth1 85.1.1.254/24
+route add default gw 85.1.1.1
+
+# NAT iptables:
+
+iptables -t nat -A POSTROUTING -o eth1 -j SNAT --to 85.1.1.254
